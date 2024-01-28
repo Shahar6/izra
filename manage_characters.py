@@ -126,7 +126,7 @@ def exitClan(ses):
 
 def spellClan():
     # 'shaharizra1@gmail.com', 'shahar3232@walla.com',
-    emails = ['liadebaywatch@gmail.com', 'elanam48@gmail.com', 'lokjrami44@gmail.com', 'shaharizra2@gmail.com', 'toharbm1@gmail.com', 'dp1480171@gmail.com',
+    emails = ['shaharizra1@gmail.com', 'shahar3232@walla.com', 'liadebaywatch@gmail.com', 'elanam48@gmail.com', 'lokjrami44@gmail.com', 'shaharizra2@gmail.com', 'toharbm1@gmail.com', 'dp1480171@gmail.com',
             'biuvit324@gmail.com', 'zmnywy@gmail.com', 'shaharau@post.bgu.ac.il', 'shaharb4r@gmail.com', 'yakirdavid111111@gmail.com', 'tevagreen1987@gmail.com',
             'lyshoees@gmail.com', 'liadyaadcheck@gmail.com', 'adimarom4@gmail.com', 'liad@fix.co.il', 'dwrytrwznbrg97@gmail.com', 'maplebgu@gmail.com']
     for email in emails:
@@ -134,14 +134,14 @@ def spellClan():
         ses, r = login(data)
         join_clan(ses)
 
-    data = {"email": 'vampire421@gmail.com', "password": '30121991', "rem": "on", "reg": "התחברות >>"}
+    data = {"email": 'vampire421@gmail.com', "password": '30121992', "rem": "on", "reg": "התחברות >>"}
     ses, r = login(data)
     url = 'http://s1.izra.co.il/clan/activatemagic'
     data = {'magic': 'more_population_timeout'}
     postP(ses, url, data)
 
     for email in emails:
-        data = {"email": email, "password": '1234512345', "rem": "on", "reg": "התחברות >>"}
+        data = {"email": email, "password": '1234512345' if email != 'lyshoees@gmail.com', "rem": "on", "reg": "התחברות >>"}
         ses, r = login(data)
         exitClan(ses)
     
@@ -158,22 +158,22 @@ login_url = "http://s1.izra.co.il/login"
 #spell clan:
 
 while True:
-    #spellClan()
-    #exit()
+    spellClan()
+    exit()
     #waitnextCollect()
     print('waking up')
     for email in emails:
-        data = {"email": email, "password": "password": '1234512345' if email != 'lyshoees@gmail.com' else '123321', "rem": "on", "reg": "התחברות >>"}
+        data = {"email": email, "password": '1234512345' if email != 'lyshoees@gmail.com' else '123321', "rem": "on", "reg": "התחברות >>"}
         ses, r = login(data)
         #exitClan(ses)
         # expand population
         # expand_population(ses)
         # train workers
-        train_population(ses)
+        #train_population(ses)
         # take back workers
-        return_slaves(ses)
+        #return_slaves(ses)
         # send workers to gather
-        send_slaves(ses)
+        #send_slaves(ses)
         # expand gatherings
         #expand_resource(ses, 'gold')
         #expand_resource(ses, 'food')

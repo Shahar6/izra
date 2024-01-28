@@ -7,8 +7,8 @@ from datetime import datetime
 
 city_emails = ['shaharizra1@gmail.com', 'liadebaywatch@gmail.com', 'elanam48@gmail.com', 'lokjrami44@gmail.com', 'shaharizra2@gmail.com', 'toharbm1@gmail.com', 'dp1480171@gmail.com',
             'biuvit324@gmail.com', 'zmnywy@gmail.com', 'shahar3232@walla.com', 'shaharau@post.bgu.ac.il', 'shaharb4r@gmail.com', 'yakirdavid111111@gmail.com', 'tevagreen1987@gmail.com',
-            'lyshoees@gmail.com', 'liadyaadcheck@gmail.com', 'adimarom4@gmail.com', 'liad@fix.co.il', 'dwrytrwznbrg97@gmail.com', 'maplebgu@gmail.com']
-city_ids = ['44260', '72137', '72100', '71875', '44261', '71843', '71849', '71910', '71894', '8690', '71806', '71792', '71882', '72113', '71833', '72101', '71909', '72114', '71908', '71807']
+            'lyshoees@gmail.com', 'adimarom4@gmail.com', 'liad@fix.co.il', 'dwrytrwznbrg97@gmail.com', 'maplebgu@gmail.com']
+city_ids = ['44260', '72137', '72100', '71875', '44261', '71843', '71849', '71910', '71894', '8690', '71806', '71792', '71882', '72113', '71833', '71909', '72114', '71908', '71807']
 
 
 
@@ -23,7 +23,7 @@ tax_url = "http://s1.izra.co.il/clan/paytaxes"
 #leader_id = '44260'
 #clan_id = '26'
 
-leader_data = {"email": 'vampire421@gmail.com', "password": '30121991', "rem": "on", "reg": "התחברות >>"}
+leader_data = {"email": 'vampire421@gmail.com', "password": '30121992', "rem": "on", "reg": "התחברות >>"}
 leader_id = '14578'
 clan_id = '23'
 
@@ -93,7 +93,7 @@ def spellClan():
         ses, r = login(data)
         join_clan(ses)
 
-    data = {"email": 'vampire421@gmail.com', "password": '30121991', "rem": "on", "reg": "התחברות >>"}
+    data = {"email": 'vampire421@gmail.com', "password": '30121992', "rem": "on", "reg": "התחברות >>"}
     ses, r = login(data)
     url = 'http://s1.izra.co.il/clan/activatemagic'
     data = {'magic': 'more_population_timeout'}
@@ -121,7 +121,7 @@ cast_today = True
 hour_to_cast = 14
 while True:
     lead_ses, r = login(leader_data)
-    
+    '''
     if cast_today == True and int(datetime.now().strftime('%H')) < hour_to_cast:
         cast_today = False
 
@@ -129,8 +129,10 @@ while True:
         spellClan()
         print('casted spell')
         cast_today = True
-        
-    waitnextCollect()        
+    '''   
+    waitnextCollect()
+    print('wake up, collecting')
+    adds = 0
     for email, c_id in zip(city_emails, city_ids): 
         member_data = {"email": email, "password": '1234512345' if email != 'lyshoees@gmail.com' else '123321', "rem": "on", "reg": "התחברות >>"}
         member_id = c_id
@@ -138,7 +140,7 @@ while True:
         res = getP(memb_ses, 'http://s1.izra.co.il/training')
         soup = BeautifulSoup(res.content, 'html.parser')
         count = int(re.findall('\nאוכלוסיה לא מאומנת: <span style="color: #444">2500 / </span>([0-9,]+) \|\n', str(soup))[0].replace(',',''))
-        train_data = {"soldiers": '0', "slaves": f'{count}', "spy": '0', "sentry": '0', "horsemen": '0', "train": 'אמן את האוכלוסיה'}
+        train_data = {"soldiers": '0', "slaves": f'{count-1}', "spy": '0', "sentry": '0', "horsemen": '0', "train": 'אמן את האוכלוסיה'}
         postP(memb_ses, 'http://s1.izra.co.il/training/train/', train_data)
         res = getP(memb_ses, 'http://s1.izra.co.il/work')
         soup = BeautifulSoup(res.content, 'html.parser')
@@ -148,7 +150,7 @@ while True:
         soup = BeautifulSoup(r.content, 'html.parser')
         x = int(re.findall('<span class="row color-gold">([0-9,]*)</span>', str(soup))[0].replace(',',''))
         count = x // 25000
-        print(f'paying {count} times ({count * 25000} gold in total)')
+        adds = adds + count
         getP(memb_ses, f'http://s1.izra.co.il/clanslist/enterclan/?join_clanid={clan_id}') # member join clan
         while count > 0:
             pay_tax(memb_ses)
@@ -160,6 +162,7 @@ while True:
             getP(memb_ses, f'http://s1.izra.co.il/clanslist/enterclan/?join_clanid={clan_id}') # member join clan
             count = count - 1
         exitClan(memb_ses) # member leaves
+    print(f'{adds * 25000} collected in total')
     
     
 
