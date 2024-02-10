@@ -2,25 +2,32 @@ import requests
 import re
 from bs4 import BeautifulSoup
 import time
+import threading
+from datetime import datetime
 
-tax_emails = ['shaharizra1@gmail.com', 'liadebaywatch@gmail.com', 'elanam48@gmail.com', 'lokjrami44@gmail.com',
-              'shaharizra2@gmail.com', 'toharbm1@gmail.com',
-              'dp1480171@gmail.com', 'biuvit324@gmail.com', 'zmnywy@gmail.com', 'shahar3232@walla.com',
-              'shaharau@post.bgu.ac.il', 'shaharb4r@gmail.com',
-              'yakirdavid111111@gmail.com', 'tevagreen1987@gmail.com', 'lyshoees@gmail.com', 'liadyaadcheck@gmail.com',
-              'adimarom4@gmail.com', 'liad@fix.co.il',
-              'dwrytrwznbrg97@gmail.com', 'maplebgu@gmail.com']
-
-tax_ids = ['44260', '72137', '72100', '71875', '44261', '71843',
-           '71849', '71910', '71894', '8690', '71806', '71792',
-           '71882', '72113', '71833', '72101', '71909', '72114',
-           '71908', '71807']
+city_emails = ['liadyaadcheck@gmail.com', 'shaharizra1@gmail.com', 'liadebaywatch@gmail.com', 'elanam48@gmail.com',
+               'lokjrami44@gmail.com', 'shaharizra2@gmail.com', 'toharbm1@gmail.com', 'dp1480171@gmail.com',
+               'zmnywy@gmail.com', 'shahar3232@walla.com', 'shaharau@post.bgu.ac.il', 'shaharb4r@gmail.com',
+               'yakirdavid111111@gmail.com', 'tevagreen1987@gmail.com',
+               'biuvit324@gmail.com', 'adimarom4@gmail.com', 'liad@fix.co.il', 'dwrytrwznbrg97@gmail.com',
+               'maplebgu@gmail.com']
+city_ids = ['72101', '44260', '72137', '72100', '71875', '44261', '71843', '71849', '71894', '8690', '71806', '71792',
+            '71882', '72113', '71910', '71909', '72114', '71908', '71807']
 
 login_url = "http://s1.izra.co.il/login"
 tax_url = "http://s1.izra.co.il/clan/paytaxes"
 
+# print('enter leader data:')
+# leader_data = {"email": input('Enter Email: '), "password": input('Enter Password: '), "rem": "on", "reg": "התחברות >>"}
+# leader_id = input('enter leader id: ')
+
+# leader_data = {"email": 'shaharizra1@gmail.com', "password": '1234512345', "rem": "on", "reg": "התחברות >>"}
+# leader_id = '44260'
+# clan_id = '26'
+
 leader_data = {"email": 'vampire421@gmail.com', "password": '30121992', "rem": "on", "reg": "התחברות >>"}
 leader_id = '14578'
+# clan_id = '23'
 last_spell = time.time()
 
 
@@ -93,22 +100,21 @@ def pay_tax(s):
     return response
 
 
-def mass_join(clan_id, leader_session):
-    getP(leader_session, 'http://s1.izra.co.il/clan/change_clan_state/?state=open')
-    emails = ['liadshahar1@gmail.com', 'liadshahar2@gmail.com', 'liadshahar3@gmail.com', 'liadshahar4@gmail.com',
-              'liadshahar5@gmail.com', 'itay50@gmail.com',
-              'oceanecom1@gmail.com', 'liadshahar6@gmail.com', '2016.rayman@gmail.com','giladd.99@gmail.com']
-    emails = emails + tax_emails
+def mass_join(clan_id):
+    emails = ['shaharizra1@gmail.com', 'shahar3232@walla.com', 'liadebaywatch@gmail.com', 'elanam48@gmail.com',
+              'lokjrami44@gmail.com', 'shaharizra2@gmail.com', 'toharbm1@gmail.com', 'dp1480171@gmail.com',
+              'zmnywy@gmail.com', 'shaharau@post.bgu.ac.il', 'shaharb4r@gmail.com',
+              'yakirdavid111111@gmail.com', 'tevagreen1987@gmail.com', 'biuvit324@gmail.com',
+              'lyshoees@gmail.com', 'liadyaadcheck@gmail.com', 'adimarom4@gmail.com', 'liad@fix.co.il',
+              'dwrytrwznbrg97@gmail.com', 'maplebgu@gmail.com',
+              'liadshahar2@gmail.com','liadshahar3@gmail.com','liadshahar4@gmail.com','liadshahar5@gmail.com', 'oceanecom1@gmail.com', 'itay50@gmail.com']
     temp = 0
     for mail in emails:
         data = {"email": mail, "password": '1234512345' if mail != 'lyshoees@gmail.com' else '123321', "rem": "on",
                 "reg": "התחברות >>"}
         ses, r = login(data)
-        soup = BeautifulSoup(r.content, 'html.parser')
-        if 'חופשות שנוצלו' not in soup.text:
-            join_clan(ses, clan_id)
-            temp = ses
-
+        join_clan(ses, clan_id)
+        temp = ses
     r = getP(temp, f'http://s1.izra.co.il/attack/?attack_id=33790')
     soup = BeautifulSoup(r.content, 'html.parser')
     csrf_token = soup.find('input', {'name': 'csrf_token'})
@@ -116,28 +122,6 @@ def mass_join(clan_id, leader_session):
     attack_data = {'turns': '1', 'csrf_token': csrf_token_value, 'defender_id': "33790", 'go': 'תקוף'}
     temp.headers['Referer'] = 'http://s1.izra.co.il'
     attack(temp, attack_data)
-
-    r = getP(temp, f'http://s1.izra.co.il/attack/?attack_id=33790')
-    soup = BeautifulSoup(r.content, 'html.parser')
-    csrf_token = soup.find('input', {'name': 'csrf_token'})
-    csrf_token_value = csrf_token['value']
-    attack_data = {'turns': '1', 'csrf_token': csrf_token_value, 'defender_id': "33790", 'go': 'תקוף'}
-    attack(temp, attack_data)
-
-
-def mass_exit():
-    emails = ['liadshahar1@gmail.com', 'liadshahar2@gmail.com', 'liadshahar3@gmail.com', 'liadshahar4@gmail.com',
-              'liadshahar5@gmail.com', 'itay50@gmail.com',
-              'oceanecom1@gmail.com', 'liadshahar6@gmail.com', '2016.rayman@gmail.com', 'giladd.99@gmail.com']
-    emails = emails + tax_emails
-    temp = 0
-    for mail in emails:
-        data = {"email": mail, "password": '1234512345' if mail != 'lyshoees@gmail.com' else '123321', "rem": "on",
-                "reg": "התחברות >>"}
-        ses, r = login(data)
-        soup = BeautifulSoup(r.content, 'html.parser')
-        if 'חופשות שנוצלו' not in soup.text:
-            exit_clan(ses)
 
 
 def spell_clan(session):
@@ -193,55 +177,53 @@ while True:
         open_url = 'http://s1.izra.co.il/clanOpen/openclan/'
         open_data = {'clan_name': 'Faith + 1', 'open': 'צור שבט'}
         postP(lead_ses, open_url, open_data)
+        getP(lead_ses, 'http://s1.izra.co.il/clan/change_clan_state/?state=open')
         postP(lead_ses, 'http://s1.izra.co.il/clan/updateleadertaxes/', {'mas': '25000'})
         clan_id = find_clan_id(lead_ses)
         # add members
-        mass_join(clan_id, lead_ses)
+        mass_join(clan_id)
         getP(lead_ses, 'http://s1.izra.co.il/clan/change_clan_state/?state=closed')
         last_spell = time.time()
 
     adds = 0
     getP(lead_ses, 'http://s1.izra.co.il/clan/change_clan_state/?state=open')
-    for email, c_id in zip(tax_emails, tax_ids):
+    for email, c_id in zip(city_emails, city_ids):
         member_data = {"email": email, "password": '1234512345' if email != 'lyshoees@gmail.com' else '123321',
                        "rem": "on", "reg": "התחברות >>"}
         member_id = c_id
         memb_ses, r = login(member_data)
+        res = getP(memb_ses, 'http://s1.izra.co.il/training')
+        soup = BeautifulSoup(res.content, 'html.parser')
+        count = int(
+            re.findall('\nאוכלוסיה לא מאומנת: <span style="color: #444">2500 / </span>([0-9,]+) \|\n', str(soup))[
+                0].replace(',', ''))
+        train_data = {"soldiers": '0', "slaves": f'{count}', "spy": '0', "sentry": '0', "horsemen": '0',
+                      "train": 'אמן את האוכלוסיה'}
+        postP(memb_ses, 'http://s1.izra.co.il/training/train/', train_data)
+        res = getP(memb_ses, 'http://s1.izra.co.il/work')
+        soup = BeautifulSoup(res.content, 'html.parser')
+        count = int(re.findall('<span class="row">עבדים חופשיים</span>\n<span class="row">([0-9,]+)</span>', str(soup))[
+                        0].replace(',', ''))
+        slave_data = {"gold": f'{count}', "food": '0', "iron": '0', "wood": '0', 'slavessend': 'שלח את העבדים'}
+        postP(memb_ses, 'http://s1.izra.co.il/work/manageslaves/', slave_data)
         soup = BeautifulSoup(r.content, 'html.parser')
-        if 'חופשות שנוצלו' not in soup.text:
-            res = getP(memb_ses, 'http://s1.izra.co.il/training')
-            soup = BeautifulSoup(res.content, 'html.parser')
-            count = int(
-                re.findall('\nאוכלוסיה לא מאומנת: <span style="color: #444">2500 / </span>([0-9,]+) \|\n', str(soup))[
-                    0].replace(',', ''))
-            train_data = {"soldiers": '0', "slaves": f'{count}', "spy": '0', "sentry": '0', "horsemen": '0',
-                          "train": 'אמן את האוכלוסיה'}
-            postP(memb_ses, 'http://s1.izra.co.il/training/train/', train_data)
-            res = getP(memb_ses, 'http://s1.izra.co.il/work')
-            soup = BeautifulSoup(res.content, 'html.parser')
-            count = int(
-                re.findall('<span class="row">עבדים חופשיים</span>\n<span class="row">([0-9,]+)</span>', str(soup))[
-                    0].replace(',', ''))
-            slave_data = {"gold": f'{count}', "food": '0', "iron": '0', "wood": '0', 'slavessend': 'שלח את העבדים'}
-            postP(memb_ses, 'http://s1.izra.co.il/work/manageslaves/', slave_data)
-            soup = BeautifulSoup(r.content, 'html.parser')
-            x = int(re.findall('<span class="row color-gold">([0-9,]*)</span>', str(soup))[0].replace(',', ''))
-            count = x // 25000
-            count = min(count, 20)
-            adds = adds + count
+        x = int(re.findall('<span class="row color-gold">([0-9,]*)</span>', str(soup))[0].replace(',', ''))
+        count = x // 25000
+        count = min(count, 20)
+        adds = adds + count
+        join_clan(memb_ses, clan_id)  # member join clan
+        while count > 0:
+            pay_tax(memb_ses)
+            getP(lead_ses,
+                 f"http://s1.izra.co.il/clan/setclanpos/?pos=1&uid={member_id}")  # make member new head of clan
+            exit_clan(lead_ses)  # leader exit clan
+            join_clan(lead_ses, clan_id)  # leader join clan
+            getP(memb_ses,
+                 f"http://s1.izra.co.il/clan/setclanpos/?pos=1&uid={leader_id}")  # make leader new head of clan
+            exit_clan(memb_ses)  # member leaves
             join_clan(memb_ses, clan_id)  # member join clan
-            while count > 0:
-                pay_tax(memb_ses)
-                getP(lead_ses,
-                     f"http://s1.izra.co.il/clan/setclanpos/?pos=1&uid={member_id}")  # make member new head of clan
-                exit_clan(lead_ses)  # leader exit clan
-                join_clan(lead_ses, clan_id)  # leader join clan
-                getP(memb_ses,
-                     f"http://s1.izra.co.il/clan/setclanpos/?pos=1&uid={leader_id}")  # make leader new head of clan
-                exit_clan(memb_ses)  # member leaves
-                join_clan(memb_ses, clan_id)  # member join clan
-                count = count - 1
-            # exit_clan(memb_ses)  # member leaves
-    getP(lead_ses, 'http://s1.izra.co.il/clan/change_clan_state/?state=closed')
+            count = count - 1
+        # exit_clan(memb_ses)  # member leaves
+    #getP(lead_ses, 'http://s1.izra.co.il/clan/change_clan_state/?state=closed')
     print(f'{adds * 25000} collected in total')
     wait_next_action(last_spell)
