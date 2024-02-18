@@ -23,11 +23,27 @@ print('Hello, this program is meant to attack users as they leave vacation in iz
 print('For support, you can reach _shahar in discord')
 
 
+p_user = 'zmhjiuix'
+p_pass = 'a6fzvlpx0wu0'
+
+ips = ['38.154.227.167:5868','185.199.229.156:7492','185.199.228.220:7300','185.199.231.45:8382','188.74.210.207:6286','188.74.183.10:8279','188.74.210.21:6100'
+       ,'45.155.68.129:8133','154.95.36.199:6893','45.94.47.66:8110']
+
+sessions = []
+
+for ip in ips:
+    proxy_url = f"http://{p_user}:{p_pass}@{ip}"
+    session = requests.Session()
+    session.proxies = {"http": proxy_url}
+    sessions.append(session)
+
+p_len = len(sessions)
+
 leader_email = 'vampire421@gmail.com'#input("enter your account's email: ")
-leader_password = '30121991'#input("enter password: ")
+leader_password = '30121992'#input("enter password: ")
 login_data = {"email": leader_email, "password": leader_password, "rem": "on", "reg": "התחברות >>"}
 #spell_data = {"res_hour_mad": '3', "magic_res_defense": "הפעל את קסם מגן המשאבים"}
-spell_data = {"res_hour_mad": '0', "magic_res_defense": "הפעל את קסם מגן המשאבים"}
+spell_data = {"res_hour_mad": '1', "magic_res_defense": "הפעל את קסם מגן המשאבים"}
 #spell_data = {"res_hour_mad": input('Resource shield hours after attacking:(0-23) '), "magic_res_defense": "הפעל את קסם מגן המשאבים"}
 
 
@@ -142,7 +158,7 @@ while keep:
     keep = input("Do you want to enter another member? (enter 'y' if yes): ") == 'y'
 #threshold = int(input("minimum amount of resources (gold + wood + iron + food) taken to keep attacking: (example: 100000 means, stop attacking if you get only 99999) "))
 '''
-ids = ['71908']
+ids = ['72101']
 attack_links = [f"http://s1.izra.co.il/attack/?attack_id=" + iden for iden in ids]
 
 
