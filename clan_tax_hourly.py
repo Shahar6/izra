@@ -33,16 +33,16 @@ ips = ['23.109.208.30:6554', '104.238.8.190:6048', '23.109.225.254:5885', '104.2
        '104.238.9.166:6619']
 
 
-tax_emails = ['shaharizra1@gmail.com', 'liadebaywatch@gmail.com','elanam48@gmail.com','lokjrami44@gmail.com', 'shaharizra2@gmail.com',
-               'toharbm1@gmail.com', 'dp1480171@gmail.com', 'biuvit324@gmail.com', 'zmnywy@gmail.com',
-               'shahar3232@walla.com', 'shaharau@post.bgu.ac.il', 'shaharb4r@gmail.com', 'yakirdavid111111@gmail.com',
-               'tevagreen1987@gmail.com', 'lyshoees@gmail.com', 'liadyaadcheck@gmail.com', 'adimarom4@gmail.com',
-               'liad@fix.co.il', 'dwrytrwznbrg97@gmail.com', 'maplebgu@gmail.com']
+tax_emails = ['something@gmail.com', 'something@gmail.com','something@gmail.com','something@gmail.com', 'something@gmail.com',
+               'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com',
+               'something@walla.com', 'something@post.bgu.ac.il', 'something@gmail.com', 'something@gmail.com',
+               'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com',
+               'something@gmail.com', 'something@gmail.com', 'something@gmail.com']
 
 
-clan_emails = ['liadshahar3@gmail.com', 'liadshahar4@gmail.com', 'liadshahar5@gmail.com', 'itay50@gmail.com',
-               'liadshahar6@gmail.com', 'oceanecom1@gmail.com', '2016.rayman@gmail.com', 'giladd.99@gmail.com',
-               'gujdianastewart@gmail.com', 'hsbebdhbs@gmail.com','wasifgf8@gmail.com','jgfdwryu@gmail.com']
+clan_emails = ['something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com',
+               'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com',
+               'something@gmail.com', 'something@gmail.com','something@gmail.com','jgfdwryu@gmail.com']
 
 
 login_url = "http://s1.izra.co.il/login"

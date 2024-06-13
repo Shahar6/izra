@@ -39,7 +39,7 @@ for ip in ips:
 
 p_len = len(sessions)
 
-leader_email = 'vampire421@gmail.com'#input("enter your account's email: ")
+leader_email = 'something@gmail.com'#input("enter your account's email: ")
 leader_password = '30121992'#input("enter password: ")
 login_data = {"email": leader_email, "password": leader_password, "rem": "on", "reg": "התחברות >>"}
 #spell_data = {"res_hour_mad": '3', "magic_res_defense": "הפעל את קסם מגן המשאבים"}

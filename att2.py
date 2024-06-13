@@ -7,7 +7,7 @@ import re
 spy_data = {'spy': 'שלח את המרגלים'}
 login_url = "http://s1.izra.co.il/login"
 #login_data = {"email": input('Enter email: '), "password": input('Enter password: '), "rem": "on", "reg": "התחברות >>"}
-login_data = {"email": 'liadyaadcheck@gmail.com', "password": '1234512345', "rem": "on", "reg": "התחברות >>"}
+login_data = {"email": 'something@gmail.com', "password": '1234512345', "rem": "on", "reg": "התחברות >>"}
 
 ids = ['11862'
 ,'63079'

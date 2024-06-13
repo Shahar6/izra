@@ -7,7 +7,7 @@ import winsound
 
 spy_data = {'spy': 'שלח את המרגלים'}
 login_url = "http://s1.izra.co.il/login"
-login_data = {"email": "vampire421@gmail.com", "password": "30121992", "rem": "on", "reg": "התחברות >>"}
+login_data = {"email": "something@gmail.com", "password": "30121992", "rem": "on", "reg": "התחברות >>"}
 
 
 def getP(session, page):
