@@ -7,11 +7,7 @@ import time
 
 spy_data = {'spy': 'שלח את המרגלים'}
 login_url = "http://s1.izra.co.il/login"
-#login_data = {"email": "shahar3232@walla.com", "password": "1234512345", "rem": "on", "reg": "התחברות >>"}
-#login_data = {"email": "shaharb4r@gmail.com", "password": "1234512345", "rem": "on", "reg": "התחברות >>"}
-login_data = {"email": "toharbm1@gmail.com", "password": "1234512345", "rem": "on", "reg": "התחברות >>"}
-#login_data = {"email": "lokjrami44@gmail.com", "password": "1234512345", "rem": "on", "reg": "התחברות >>"}
-#login_data = {"email": "vampire421@gmail.com", "password": "30121992", "rem": "on", "reg": "התחברות >>"}
+login_data = {"email": "something@gmail.com", "password": "1234512345", "rem": "on", "reg": "התחברות >>"}
 
 new_data = {'name':'panderverse','race':'4','go':'המשך לבסיס'}
 
