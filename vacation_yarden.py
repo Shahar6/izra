@@ -65,7 +65,7 @@ def format_with_commas(number):
 def thread_scan():
     s = login()
     prev = 0
-    log_data = {"email": 'vampire421@gmail.com', "password": '30121992', "rem": "on", "reg": "התחברות >>"}
+    log_data = {"email": 'something@gmail.com', "password": '30121992', "rem": "on", "reg": "התחברות >>"}
     s2 = login(log_data)
     s2.headers['Referer'] = 'http://s1.izra.co.il'
     while True:
