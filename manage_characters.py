@@ -125,32 +125,31 @@ def exitClan(ses):
 
 
 def spellClan():
-    # 'shaharizra1@gmail.com', 'shahar3232@walla.com',
-    emails = ['shaharizra1@gmail.com', 'shahar3232@walla.com', 'liadebaywatch@gmail.com', 'elanam48@gmail.com', 'lokjrami44@gmail.com', 'shaharizra2@gmail.com', 'toharbm1@gmail.com', 'dp1480171@gmail.com',
-            'biuvit324@gmail.com', 'zmnywy@gmail.com', 'shaharau@post.bgu.ac.il', 'shaharb4r@gmail.com', 'yakirdavid111111@gmail.com', 'tevagreen1987@gmail.com',
-            'lyshoees@gmail.com', 'liadyaadcheck@gmail.com', 'adimarom4@gmail.com', 'liad@fix.co.il', 'dwrytrwznbrg97@gmail.com', 'maplebgu@gmail.com']
+    emails = ['something@gmail.com', 'something@walla.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com',
+            'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com',
+            'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com']
     for email in emails:
         data = {"email": email, "password": '1234512345' if email != 'lyshoees@gmail.com' else '123321', "rem": "on", "reg": "התחברות >>"}
         ses, r = login(data)
         join_clan(ses)
 
-    data = {"email": 'vampire421@gmail.com', "password": '30121992', "rem": "on", "reg": "התחברות >>"}
+    data = {"email": 'something@gmail.com', "password": '30121992', "rem": "on", "reg": "התחברות >>"}
     ses, r = login(data)
     url = 'http://s1.izra.co.il/clan/activatemagic'
     data = {'magic': 'more_population_timeout'}
     postP(ses, url, data)
 
     for email in emails:
-        data = {"email": email, "password": '1234512345' if email != 'lyshoees@gmail.com' else '123321', "rem": "on", "reg": "התחברות >>"}
+        data = {"email": email, "password": '1234512345' if email != 'something@gmail.com' else '123321', "rem": "on", "reg": "התחברות >>"}
         ses, r = login(data)
         exitClan(ses)
     
 
 
 
-emails = [ 'liadebaywatch@gmail.com', 'shaharizra1@gmail.com', 'shahar3232@walla.com', 'elanam48@gmail.com', 'lokjrami44@gmail.com', 'shaharizra2@gmail.com', 'toharbm1@gmail.com',
-          'dp1480171@gmail.com', 'biuvit324@gmail.com', 'zmnywy@gmail.com', 'shaharb4r@gmail.com', 'shaharau@post.bgu.ac.il',
-          'yakirdavid111111@gmail.com','tevagreen1987@gmail.com', 'liadyaadcheck@gmail.com', 'adimarom4@gmail.com', 'liad@fix.co.il','dwrytrwznbrg97@gmail.com', 'maplebgu@gmail.com']
+emails = [ 'something@gmail.com', 'something@gmail.com', 'something@walla.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com',
+          'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com',
+          'something@gmail.com','something@gmail.com', 'something@gmail.com', 'something@gmail.com', 'something@gmail.com','something@gmail.com', 'something@gmail.com']
 
 email0 = ['wasifgf8@gmail.com','jgfdwryu@gmail.com','aslamjg45677@gmail.com','tnseer181@gmail.com','adiljg47788@gmail.com','asid7625@gmail.com','arifjg33556@gmail.com','oumarjg35789@gmail.com','asifjg34678@gmail.com','zahoorjg3467@gmail.com','zuhebjg4558@gmail.com','rmzan128@gmail.com','rohanjg825@gmail.com','adnanjg21@gmail.com','asifjg45688@gmail.com','saberjg78@gmail.com','saqibgf6@gmail.com','khgdserty@gmail.com','shafeeqghg5@gmail.com','jameelgf6@gmail.com','saleemgf568@gmail.com','kaleemgf298@gmail.com','hasangf08@gmail.com','afangf31@gmail.com','asfindgffd0@gmail.com','raheemgf7@gmail.com','rahoolhg4@gmail.com','rahitgf886@gmail.com','khadimgf1@gmail.com','bukhatgf002@gmail.com','asifgf845@gmail.com','asadgf688@gmail.com','aslamgf469@gmail.com','outewsghj845@gmail.com','najeebgf15@gmail.com','fhdtu9618@gmail.com','hstcdhgh5@gmail.com','jdtdnn1@gmail.com','jsehgh@gmail.com','hhdyhh936@gmail.com','fjfygghg17@gmail.com','offthyu730@gmail.com','degkb71@gmail.com','bddonn873@gmail.com','hyye961@gmail.com','fdrkit146@gmail.com','heeouf@gmail.com','urscjgd@gmail.com','jifcvdr@gmail.com','jufcjcr@gmail.com','nhskiey@gmail.com','gyefb157@gmail.com','mvvkoh@gmail.com','oigvjgji@gmail.com','uisndh1@gmail.com','itgjvv2@gmail.com','jugjvh5@gmail.com','knnhgv7@gmail.com','jggok07@gmail.com','jbdvjis@gmail.com','ndgnsk7@gmail.com','kokn74353@gmail.com','jghjbg92@gmail.com','jgvbikh@gmail.com','innjgyv@gmail.com','iggikk26@gmail.com','knbokk42@gmail.com','kiie01796@gmail.com','jhhd2193@gmail.com','mnbiih98@gmail.com','jffvujvhyfjc@gmail.com','cerhyu023@gmail.com','sgchh3372@gmail.com','ewfggh72@gmail.com','jsjdhbdjjd64@gmail.com','fjjcktf@gmail.com','hshgeheh1@gmail.com','hiifjj00@gmail.com','yehdhhdyehdhh@gmail.com','ghfghjj139@gmail.com','hjjsergh@gmail.com','hjjchnb@gmail.com','bjkbjj989@gmail.com','highh7067@gmail.com','kerghjk60@gmail.com','nbcggj8@gmail.com','khjjhik3@gmail.com','hejsjsjjs9@gmail.com','vehdsetgs@gmail.com','bkvgcjj@gmail.com','ghsegff05@gmail.com','hsjjsowhs@gmail.com','gtygh1653@gmail.com','thffgh49@gmail.com','dgswe18@gmail.com','fjdegg81@gmail.com','yhigiuh6@gmail.com','ufyffuv@gmail.com','sefghh33@gmail.com','seffgh544@gmail.com','ngvhctt@gmail.com','xvbffgh2@gmail.com','xeggbjj8@gmail.com','hehgehh159@gmail.com','cstghei@gmail.com','ddrggvgg@gmail.com','cvvxsev@gmail.com','deghgjj@gmail.com','gjmhj27@gmail.com','fynfhe@gmail.com','jiubdgh@gmail.com','iejjueg@gmail.com','ksksbb560@gmail.com','nsosnb0@gmail.com','bjzjsb875@gmail.com','bxisbsn@gmail.com','b88442542@gmail.com','njxjb4385@gmail.com','bskjs145@gmail.com','vzjsb54@gmail.com']
 email1 = ['bhdxxc649@gmail.com','xndiv8684@gmail.com','nsksbb559@gmail.com','ksosbb873@gmail.com','nsisbb0@gmail.com','fgshsj107@gmail.com','jjcxxd8@gmail.com','b85706117@gmail.com','ajiab8503@gmail.com','nzksb095@gmail.com','b05901776@gmail.com','ndkdbb7@gmail.com','lsjsb74@gmail.com','ossbb86@gmail.com','j69965716@gmail.com','nsksb840@gmail.com','bjdjsb617@gmail.com','vanaj3817@gmail.com','jdidbb022@gmail.com','j40019827@gmail.com','jsisvv624@gmail.com','ksosb232@gmail.com','v3314418@gmail.com','bxjsjb3@gmail.com','j33732171@gmail.com','jbxcc738@gmail.com','kaobb62@gmail.com','alirazakhan0523@gmail.com','nomanazam6929@gmail.com','tabishumar887@gmail.com','naveedazan7292@gmail.com','inyarsalam70@gmail.com','basitn059@gmail.com','azmatomer453@gmail.com','asifhameed6395@gmail.com','alijunaid0913@gmail.com','alijabbar0347@gmail.com','alizamin0913@gmail.com','azmat6526463@gmail.com','erroryt8573634@gmail.com']
