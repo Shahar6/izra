@@ -52,7 +52,7 @@ high_priority_work_active = False
 condition = threading.Condition()
 print_lock = threading.Lock()
 
-leader_email = 'lyshoees@gmail.com'  # input("enter your account's email: ")
+leader_email = 'something@gmail.com'  # input("enter your account's email: ")
 leader_password = '123321'  # input("enter password: ")
 login_data = {"email": leader_email, "password": leader_password, "rem": "on", "reg": "התחברות >>"}
 spell_data = {"res_hour_mad": '12', "magic_res_defense": "הפעל את קסם מגן המשאבים"}
